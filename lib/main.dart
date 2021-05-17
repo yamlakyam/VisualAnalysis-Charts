@@ -13,7 +13,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   List<charts.Series<PieData, String>> _pieData;
 
   @override
@@ -31,26 +30,32 @@ class _MyAppState extends State<MyApp> {
       new PieData('Other', 10.3)
     ];
 
-    _pieData.add(charts.Series(
-        domainFn: (PieData data, _) => data.activity,
-        measureFn: (PieData data, _) => data.time,
-        id: 'Time Spent',
-        data: pieData),);
+    _pieData.add(
+      charts.Series(
+          domainFn: (PieData data, _) => data.activity,
+          measureFn: (PieData data, _) => data.time,
+          id: 'Time Spent',
+          data: pieData),
+    );
     return _pieData;
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
-          child: charts.PieChart(generateData()),
+          child: charts.PieChart(
+            generateData(),
+            animate: true,
+            animationDuration: Duration(seconds: 5),
+          ),
         ),
       ),
     );
   }
 }
-
 
 class PieData {
   String activity;
