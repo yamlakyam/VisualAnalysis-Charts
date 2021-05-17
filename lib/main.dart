@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
       new PieData('Other', 10.3)
     ];
 
-
+    _pieData=[];
     _pieData.add(
       charts.Series(
           domainFn: (PieData data, _) => data.activity,
