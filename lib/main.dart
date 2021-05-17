@@ -50,6 +50,12 @@ class _MyAppState extends State<MyApp> {
             generateData(),
             animate: true,
             animationDuration: Duration(seconds: 5),
+            defaultRenderer: charts.ArcRendererConfig(
+                arcWidth: 100,
+                arcRendererDecorators: [
+                  charts.ArcLabelDecorator(
+                      labelPosition: charts.ArcLabelPosition.inside)
+                ]),
           ),
         ),
       ),
