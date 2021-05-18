@@ -11,6 +11,12 @@ class barchartt extends StatefulWidget {
 class _barcharttState extends State<barchartt> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      home: Scaffold(
+        body:Center(
+          child: Text('HII')
+        )
+      ),
+    );
   }
 }

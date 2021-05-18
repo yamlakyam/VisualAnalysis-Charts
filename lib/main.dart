@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'dart:async';
 import 'package:charts_in_flutterr/barchart.dart' as bC;
+import 'package:splashscreen/splashscreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,20 +18,11 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   List<charts.Series<PieData, String>> _pieData;
 
-  route() {
-    Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-            builder: (context) =>bC.barchartt()
-        )
-    );
-  }
-
   @override
   void initState() {
     super.initState();
     _pieData = List<charts.Series<PieData, String>>.empty(growable: true);
-    startTime();
+
   }
 
   generateData() {
@@ -42,41 +34,76 @@ class _MyAppState extends State<MyApp> {
       new PieData('Other', 10.3)
     ];
 
-    _pieData=[];
+    _pieData = [];
     _pieData.add(
       charts.Series(
-          domainFn: (PieData data, _) => data.activity,
-          measureFn: (PieData data, _) => data.time,
-          id: 'Time Spent',
-          data: pieData),
+        domainFn: (PieData data, _) => data.activity,
+        measureFn: (PieData data, _) => data.time,
+        id: 'Time Spent',
+        data: pieData,
+        labelAccessorFn: (PieData row, _) => '${row.activity} : ${row.time}',
+      ),
     );
     return _pieData;
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: charts.PieChart(
-            generateData(),
-            animate: true,
-            animationDuration: Duration(seconds: 5),
-            defaultRenderer:
-                charts.ArcRendererConfig(arcWidth: 100, arcRendererDecorators: [
-              charts.ArcLabelDecorator(
-                  labelPosition: charts.ArcLabelPosition.inside),
-            ]),
-          ),
-        ),
-      ),
-    );
+  void tDelay(){
+    Future.delayed(Duration(seconds: 10), () {
+      //setState(() {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => bC.barchartt()));
+      // });
+    });
   }
 
-  startTime() async {
-    var duration = new Duration(seconds: 6);
-    return Timer(duration, route);
+  // Future delay() async{
+  //   await new Future.delayed(new Duration(seconds: 10), (){
+  //     Navigator.push(context,MaterialPageRoute(builder: (context)=>bC.barchartt()));
+  //   });
+  // }
+
+  @override
+  Widget build(BuildContext context) {
+    // Timer(Duration(seconds: 10), () {
+    //   Navigator.push(context, MaterialPageRoute(builder: (context)=>bC.barchartt()));
+    // });
+
+    // Future delay() async{
+    //   await new Future.delayed(new Duration(seconds: 10), (){
+    //     Navigator.push(context,MaterialPageRoute(builder: (context)=>bC.barchartt()));
+    //   });
+    // }
+
+
+    return FutureBuilder(
+      future: Future.delayed(Duration(seconds: 10)),
+      builder: (context,snapshot){
+        if(snapshot.connectionState==ConnectionState.waiting){
+          return MaterialApp(debugShowCheckedModeBanner: false,
+            home: Scaffold(
+              body: Center(
+                child: charts.PieChart(
+                  generateData(),
+                  animate: true,
+                  animationDuration: Duration(seconds: 5),
+                  defaultRenderer:
+                  charts.ArcRendererConfig(arcWidth: 100, arcRendererDecorators: [
+                    charts.ArcLabelDecorator(
+                        labelPosition: charts.ArcLabelPosition.inside),
+                  ]),
+                ),
+              ),
+              // ignore: missing_return
+            ),);
+        }
+        else {
+          return bC.barchartt();
+        }
+
+      },
+
+
+      );
   }
 }
 
@@ -86,3 +113,5 @@ class PieData {
 
   PieData(this.activity, this.time);
 }
+
+
