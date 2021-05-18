@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'dart:async';
 import 'package:charts_in_flutterr/barchart.dart' as bC;
-import 'package:splashscreen/splashscreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +21,6 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     _pieData = List<charts.Series<PieData, String>>.empty(growable: true);
-
   }
 
   generateData() {
@@ -47,7 +45,7 @@ class _MyAppState extends State<MyApp> {
     return _pieData;
   }
 
-  void tDelay(){
+  void tDelay() {
     Future.delayed(Duration(seconds: 10), () {
       //setState(() {
       Navigator.push(
@@ -74,36 +72,42 @@ class _MyAppState extends State<MyApp> {
     //   });
     // }
 
-
     return FutureBuilder(
       future: Future.delayed(Duration(seconds: 10)),
-      builder: (context,snapshot){
-        if(snapshot.connectionState==ConnectionState.waiting){
-          return MaterialApp(debugShowCheckedModeBanner: false,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
             home: Scaffold(
               body: Center(
                 child: charts.PieChart(
                   generateData(),
                   animate: true,
                   animationDuration: Duration(seconds: 5),
-                  defaultRenderer:
-                  charts.ArcRendererConfig(arcWidth: 100, arcRendererDecorators: [
-                    charts.ArcLabelDecorator(
-                        labelPosition: charts.ArcLabelPosition.inside),
-                  ]),
+                  defaultRenderer: charts.ArcRendererConfig(
+                      arcWidth: 100,
+                      arcRendererDecorators: [
+                        charts.ArcLabelDecorator(
+                            labelPosition: charts.ArcLabelPosition.inside),
+                      ]),
                 ),
               ),
               // ignore: missing_return
-            ),);
+            ),
+          );
+        } else {
+          return AnimatedSwitcher(
+            duration: Duration(seconds: 5),
+            transitionBuilder: (Widget child, Animation<double> animation) =>
+                ScaleTransition(
+              scale: animation,
+                 // child: child,
+            ),
+            child: bC.barchartt(),
+          );
         }
-        else {
-          return bC.barchartt();
-        }
-
       },
-
-
-      );
+    );
   }
 }
 
@@ -113,5 +117,3 @@ class PieData {
 
   PieData(this.activity, this.time);
 }
-
-
