@@ -101,7 +101,7 @@ class _MyAppState extends State<MyApp> {
             transitionBuilder: (Widget child, Animation<double> animation) =>
                 ScaleTransition(
               scale: animation,
-                 // child: child,
+                 child: child,
             ),
             child: bC.barchartt(),
           );
