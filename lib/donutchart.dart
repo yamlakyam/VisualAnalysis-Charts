@@ -11,13 +11,17 @@ class _DonutChartState extends State<DonutChart> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text('Welcome'),
-            Text('to the third page'),
-          ],
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text('Welcome'),
+              Text('to the third page'),
+            ],
+          ),
         ),
       ),
     );

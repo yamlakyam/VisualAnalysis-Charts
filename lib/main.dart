@@ -47,20 +47,6 @@ class _MyAppState extends State<MyApp> {
     return _pieData;
   }
 
-  void tDelay() {
-    Future.delayed(Duration(seconds: 10), () {
-      //setState(() {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => bC.barchartt()));
-      // });
-    });
-  }
-
-  // Future delay() async{
-  //   await new Future.delayed(new Duration(seconds: 10), (){
-  //     Navigator.push(context,MaterialPageRoute(builder: (context)=>bC.barchartt()));
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +71,7 @@ class _MyAppState extends State<MyApp> {
                 child: charts.PieChart(
                   generateData(),
                   animate: true,
-                  animationDuration: Duration(seconds: 5),
+                  animationDuration: Duration(seconds: 3),
                   defaultRenderer: charts.ArcRendererConfig(
                       arcWidth: 100,
                       arcRendererDecorators: [
