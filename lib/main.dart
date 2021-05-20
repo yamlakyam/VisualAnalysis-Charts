@@ -61,7 +61,7 @@ class _MyAppState extends State<MyApp> {
     // }
 
     return FutureBuilder(
-      future: Future.delayed(Duration(seconds: 10)),
+      future: Future.delayed(Duration(seconds: 2)),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return MaterialApp(

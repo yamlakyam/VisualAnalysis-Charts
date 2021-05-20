@@ -31,12 +31,22 @@ class _barcharttState extends State<barchartt> {
           id: 'Sales',
           data: SalesData,
           domainFn: (Sales sales, _) => sales.year,
-          measureFn: (Sales sales, _) => sales.amount)
+          measureFn: (Sales sales, _) => sales.amount),
     ];
   }
 
   barChart() {
-    return charts.BarChart(seriesList, animate: true, vertical: true);
+    return charts.BarChart(
+      seriesList,
+      animate: true,
+      vertical: false,
+      behaviors: [
+        charts.SelectNearest(),
+        charts.PanAndZoomBehavior(),
+        charts.DatumLegend(),
+        charts.SlidingViewport(),
+      ],
+    );
   }
 
   @override
@@ -54,9 +64,11 @@ class _barcharttState extends State<barchartt> {
                 Animation<double> secAnimation,
                 Widget child) {
               animation =
-                  CurvedAnimation(parent: animation, curve: Curves.elasticIn);
-              return ScaleTransition(
-                  scale: animation, alignment: Alignment.center, child: child);
+                  CurvedAnimation(parent: animation, curve: Curves.easeOutCirc);
+              return
+                // ScaleTransition(
+                //   scale: animation, alignment: Alignment.bottomLeft, child: child);
+              RotationTransition(turns: animation,alignment: Alignment.center,child:child,);
             },
             pageBuilder: (BuildContext context, Animation<double> animation,
                 Animation<double> secAnimation) {
@@ -69,7 +81,7 @@ class _barcharttState extends State<barchartt> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-          backgroundColor: Colors.amberAccent,
+          backgroundColor: Colors.deepPurple[400],
           body: Center(
             child: barChart(),
           ),
