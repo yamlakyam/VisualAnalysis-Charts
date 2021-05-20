@@ -19,8 +19,23 @@ class _barcharttState extends State<barchartt> {
     //   Navigator.push(
     //       context, MaterialPageRoute(builder: ( context) => dC.DonutChart()));
     // });
-    Future.delayed(Duration(seconds: 5)).then(
-        (value) => Navigator.push( context, MaterialPageRoute(builder: (context)=>dC.DonutChart())));
+    Future.delayed(Duration(seconds: 5)).then((value) =>
+        Navigator.push(
+            context,
+            PageRouteBuilder(
+                transitionDuration: Duration(seconds: 5),
+                transitionsBuilder: (BuildContext context,
+                    Animation<double> animation,
+                    Animation<double> secAnimation,
+                    Widget child) {
+                  return ScaleTransition(scale: animation,
+                      alignment: Alignment.center,
+                      child: child);
+                },
+                pageBuilder: (BuildContext context, Animation<double> animation,
+                    Animation<double> secAnimation) {
+                  return dC.DonutChart();
+                })));
   }
 
   @override
