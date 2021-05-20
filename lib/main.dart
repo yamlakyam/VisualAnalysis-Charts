@@ -4,7 +4,9 @@ import 'dart:async';
 import 'package:charts_in_flutterr/barchart.dart' as bC;
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    home:MyApp()
+  ));
 }
 
 class MyApp extends StatefulWidget {
