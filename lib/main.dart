@@ -85,7 +85,7 @@ class _MyAppState extends State<MyApp> {
           );
         } else {
           return AnimatedSwitcher(
-            duration: Duration(seconds: 5),
+            duration: Duration(seconds: 3),
             transitionBuilder: (Widget child, Animation<double> animation) =>
                 ScaleTransition(
               scale: animation,
