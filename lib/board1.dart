@@ -76,150 +76,11 @@ class _Board1State extends State<Board1> {
                           child: Column(
                             //crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Expanded(
-                                child: Card(
-                                  margin: EdgeInsets.symmetric(
-                                      vertical: 10, horizontal: 10),
-                                  elevation: 10.0,
-                                  child: Column(
-                                    children: [
-                                      Text('Downloads'),
-                                      Row(
-                                        children: [
-                                          SizedBox(width: 20),
-                                          Text(
-                                            '648.6K',
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          SizedBox(width: 5),
-                                          Text(
-                                            '107%',
-                                            style: TextStyle(
-                                                color: Color(0xff35c894)),
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: Card(
-                                  elevation: 10.0,
-                                  child: Column(
-                                    children: [
-                                      Text('Total Revenue'),
-                                      Row(
-                                        children: [
-                                          SizedBox(width: 20),
-                                          Text(
-                                            '\$566.5k',
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          SizedBox(width: 5),
-                                          Text(
-                                            '137%',
-                                            style: TextStyle(
-                                                color: Color(0xff35c894)),
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: Card(
-                                  elevation: 10.0,
-                                  child: Column(
-                                    children: [
-                                      Text('ARPU'),
-                                      Row(
-                                        children: [
-                                          SizedBox(width: 20),
-                                          Text(
-                                            '\$0.9',
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          SizedBox(width: 5),
-                                          Text(
-                                            '124%',
-                                            style: TextStyle(
-                                                color: Color(0xff35c894)),
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: Card(
-                                  elevation: 10.0,
-                                  child: Column(
-                                    children: [
-                                      SizedBox(height: 15),
-                                      Row(children: [
-                                        SizedBox(width: 20),
-                                        Text(
-                                          'Engagement',
-                                        ),
-                                      ]),
-                                      SizedBox(height: 5),
-                                      Row(
-                                        children: [
-                                          SizedBox(width: 20),
-                                          Text(
-                                            '21.4%',
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          SizedBox(width: 5),
-                                          Text(
-                                            '0.4%',
-                                            style: TextStyle(
-                                                color: Color(0xff35c894)),
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: Card(
-                                  elevation: 10.0,
-                                  child: Column(
-                                    children: [
-                                      Text('DAU'),
-                                      Row(
-                                        children: [
-                                          SizedBox(width: 20),
-                                          Text(
-                                            '148.1k',
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          SizedBox(width: 5),
-                                          Text(
-                                            '2.8%',
-                                            style: TextStyle(
-                                                color: Color(0xff35c894)),
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
+                              dataLists('Downloads', '648.6K', '107%'),
+                              dataLists('Total Revenue', '\$566.5K', '137%'),
+                              dataLists('ARPU', '\$0.9', '124%'),
+                              dataLists('Enagagement', '21.4%', '0.4%'),
+                              dataLists('DAU', '148.1K', '2.8%'),
                             ],
                           ),
                         ),
@@ -246,6 +107,48 @@ class _Board1State extends State<Board1> {
               ),
             ),
           )),
+    );
+  }
+}
+
+class dataLists extends StatelessWidget {
+  String title, txt1, percentage;
+
+  dataLists(this.title, this.txt1,
+      this.percentage); // dataLists(this.title, this.txt1, this.percentage);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Card(
+        elevation: 10.0,
+        child: Column(
+          children: [
+            SizedBox(height: 15),
+            Row(children: [
+              SizedBox(width: 20),
+              Text(
+                title,
+              ),
+            ]),
+            SizedBox(height: 5),
+            Row(
+              children: [
+                SizedBox(width: 20),
+                Text(
+                  txt1,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(width: 5),
+                Text(
+                  percentage,
+                  style: TextStyle(color: Color(0xff35c894)),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
