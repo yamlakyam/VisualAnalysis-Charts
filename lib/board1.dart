@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'boardlinechart.dart' as bLC;
+import 'boardpiechart.dart' as bPC;
 
 class Board1 extends StatefulWidget {
   @override
@@ -86,17 +87,38 @@ class _Board1State extends State<Board1> {
                           ),
                         ),
                         Expanded(
-                          flex: 2,
+                          flex: 6,
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              bLC.LineChartSample2(),
-                              Row(
-                                children: [
-                                  Text('piechart'),
-                                  Text('piechart2'),
-                                  Text('piechart3'),
-                                ],
+                              Expanded(
+                                  flex: 1,
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      bLC.LineChartSample2()
+                                    ],
+                                  )),
+                              Expanded(
+                                flex: 1,
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: bPC.PieChartSample1(),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: bPC.PieChartSample1(),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: bPC.PieChartSample1(),
+                                    ),
+                                  ],
+                                ),
                               )
                             ],
                           ),
