@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'dart:async';
 import 'package:charts_in_flutterr/barchart.dart' as bC;
+import 'board1.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home:MyApp()
-  ));
+  runApp(MaterialApp(home: Board1()));
 }
 
 class MyApp extends StatefulWidget {
@@ -46,7 +45,6 @@ class _MyAppState extends State<MyApp> {
     );
     return _pieData;
   }
-
 
   @override
   Widget build(BuildContext context) {
