@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'boardlinechart.dart' as bLC;
 
 class Board1 extends StatefulWidget {
   @override
@@ -89,7 +90,7 @@ class _Board1State extends State<Board1> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text('The Line Graph'),
+                              bLC.LineChartSample2(),
                               Row(
                                 children: [
                                   Text('piechart'),
