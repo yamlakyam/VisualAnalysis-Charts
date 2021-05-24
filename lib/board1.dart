@@ -13,7 +13,7 @@ class _Board1State extends State<Board1> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          backgroundColor: Color(0xfffafafa),
+          backgroundColor: Color(0xffffffff),
           body: Center(
             child: Container(
               padding: EdgeInsets.all(10),
