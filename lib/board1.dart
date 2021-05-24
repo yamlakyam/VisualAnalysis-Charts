@@ -46,6 +46,9 @@ class _Board1State extends State<Board1> {
                               Text(
                                 'KOOJE | Finance Portfolio Manager',
                               ),
+                              SizedBox(
+                                height: 10,
+                              ),
                               Row(
                                 children: [
                                   Icon(Icons.android_rounded),

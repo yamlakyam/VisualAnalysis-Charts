@@ -78,25 +78,43 @@ class _LineChartSample2State extends State<LineChartSample2> {
       titlesData: FlTitlesData(
         show: true,
         bottomTitles: SideTitles(
-          showTitles: true,
-          reservedSize: 22,
-          getTextStyles: (value) => const TextStyle(
-              color: Color(0xff68737d),
-              fontWeight: FontWeight.bold,
-              fontSize: 16),
-          getTitles: (value) {
-            switch (value.toInt()) {
-              case 2:
-                return 'MAR';
-              case 5:
-                return 'JUN';
-              case 8:
-                return 'SEP';
-            }
-            return '';
-          },
-          margin: 8,
-        ),
+            showTitles: true,
+            reservedSize: 20,
+            getTextStyles: (value) => const TextStyle(
+                color: Color(0xff68737d),
+                fontWeight: FontWeight.bold,
+                fontSize: 16),
+            getTitles: (value) {
+              switch (value.toInt()) {
+                case 0:
+                  return 'JAN';
+                case 10:
+                  return 'FEB';
+                case 20:
+                  return 'MAR';
+                case 30:
+                  return 'APR';
+                case 40:
+                  return 'MAY';
+                case 50:
+                  return 'JUN';
+                case 60:
+                  return 'JUL';
+                case 70:
+                  return 'AUG';
+                case 80:
+                  return 'SEPT';
+                case 90:
+                  return 'OCT';
+                case 100:
+                  return 'NOV';
+                case 110:
+                  return 'DEC';
+              }
+              return '';
+            },
+            margin: 8,
+            rotateAngle: 60),
         leftTitles: SideTitles(
           showTitles: true,
           getTextStyles: (value) => const TextStyle(
@@ -123,23 +141,24 @@ class _LineChartSample2State extends State<LineChartSample2> {
           show: true,
           border: Border.all(color: const Color(0xffffffff), width: 1)),
       minX: 0,
-      maxX: 11,
+      maxX: 110,
       minY: 0,
       maxY: 6,
       lineBarsData: [
         LineChartBarData(
           spots: [
-            FlSpot(0, 3),
-            FlSpot(2.6, 2),
-            FlSpot(4.9, 5),
-            FlSpot(6.8, 3.1),
-            FlSpot(8, 4),
-            FlSpot(9.5, 3),
-            FlSpot(11, 4),
+            FlSpot(0.0 * 10, 3),
+            FlSpot(2.6 * 10, 2),
+            FlSpot(4.9 * 10, 5),
+            FlSpot(6.8 * 10, 3.1),
+            FlSpot(8.0 * 10, 4),
+            FlSpot(9.5 * 10, 3),
+            FlSpot(10.0 * 10, 5),
+            FlSpot(11.0 * 10, 4),
           ],
           isCurved: true,
           colors: gradientColors,
-          barWidth: 5,
+          barWidth: 3,
           isStrokeCapRound: true,
           dotData: FlDotData(
             show: false,
