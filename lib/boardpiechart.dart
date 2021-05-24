@@ -57,10 +57,11 @@ class PieChartSample1State extends State {
             ),
             Row(
               children: [
-                Expanded(child: SizedBox()),
+                Expanded(flex: 2, child: SizedBox()),
                 Expanded(
+                  flex: 2,
                   child: Column(
-                   // mainAxisSize: MainAxisSize.max,
+                    // mainAxisSize: MainAxisSize.max,
                     //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
@@ -69,33 +70,37 @@ class PieChartSample1State extends State {
                         text: 'One',
                         isSquare: false,
                         size: touchedIndex == 0 ? 18 : 16,
-                        textColor: touchedIndex == 0 ? Colors.black : Colors.grey,
+                        textColor:
+                            touchedIndex == 0 ? Colors.black : Colors.grey,
                       ),
                       Indicator(
                         color: const Color(0xff343351),
                         text: 'Two',
                         isSquare: false,
                         size: touchedIndex == 1 ? 18 : 16,
-                        textColor: touchedIndex == 1 ? Colors.black : Colors.grey,
+                        textColor:
+                            touchedIndex == 1 ? Colors.black : Colors.grey,
                       ),
                       Indicator(
                         color: const Color(0xffffcfcd),
                         text: 'Three',
                         isSquare: false,
                         size: touchedIndex == 2 ? 18 : 16,
-                        textColor: touchedIndex == 2 ? Colors.black : Colors.grey,
+                        textColor:
+                            touchedIndex == 2 ? Colors.black : Colors.grey,
                       ),
                       Indicator(
                         color: const Color(0xff5f5bf3),
                         text: 'Four',
                         isSquare: false,
                         size: touchedIndex == 3 ? 18 : 16,
-                        textColor: touchedIndex == 3 ? Colors.black : Colors.grey,
+                        textColor:
+                            touchedIndex == 3 ? Colors.black : Colors.grey,
                       ),
                     ],
                   ),
                 ),
-                Expanded(child: SizedBox()),
+                Expanded(flex: 1, child: SizedBox()),
               ],
             ),
           ],
