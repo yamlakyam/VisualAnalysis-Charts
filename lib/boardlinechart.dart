@@ -114,7 +114,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
               return '';
             },
             margin: 8,
-            rotateAngle: 60),
+           ),
         leftTitles: SideTitles(
           showTitles: true,
           getTextStyles: (value) => const TextStyle(
