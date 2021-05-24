@@ -36,7 +36,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
           ),
         ),
         SizedBox(
-          width: 60,
+          width: 100,
           height: 34,
           child: TextButton(
             onPressed: () {
@@ -60,7 +60,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
   LineChartData mainData() {
     return LineChartData(
       gridData: FlGridData(
-        show: true,
+        show: false,
         drawVerticalLine: true,
         getDrawingHorizontalLine: (value) {
           return FlLine(
