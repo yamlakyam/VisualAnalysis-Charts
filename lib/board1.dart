@@ -41,31 +41,46 @@ class _Board1State extends State<Board1> {
                           flex: 10,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(
-                                'KOOJE | Finance Portfolio Manager',
+                              Expanded(
+                                flex: 1,
+                                child: SizedBox(
+                                  height: 1,
+                                ),
                               ),
-                              SizedBox(
-                                height: 10,
+                              Expanded(
+                                flex:1,
+                                child: Text(
+                                  'KOOJE | Finance Portfolio Manager',
+                                ),
                               ),
-                              Row(
-                                children: [
-                                  Icon(Icons.android_rounded),
-                                  SizedBox(
-                                    width: 15,
-                                  ),
-                                  Text(
-                                    'Android Play Store',
-                                  ),
-                                  SizedBox(
-                                    width: 15,
-                                  ),
-                                  Text(
-                                    'Free * Finance * Business',
-                                  )
-                                ],
-                              )
+
+                              Expanded(
+                                flex:1,
+                                child: Row(
+                                  children: [
+                                    Icon(Icons.android_rounded),
+                                    SizedBox(
+                                      width: 15,
+                                    ),
+                                    Text(
+                                      'Android Play Store',
+                                    ),
+                                    SizedBox(
+                                      width: 15,
+                                    ),
+                                    Text(
+                                      'Free * Finance * Business',
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                  flex: 4,
+                                  child: SizedBox(
+                                    height: 1,
+                                  ))
                             ],
                           ),
                         )

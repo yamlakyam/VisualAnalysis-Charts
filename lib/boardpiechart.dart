@@ -6,6 +6,8 @@ import 'indicator.dart';
 class PieChartSample1 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => PieChartSample1State();
+
+  PieChartSample1();
 }
 
 class PieChartSample1State extends State {
