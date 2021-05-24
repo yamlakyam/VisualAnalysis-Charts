@@ -55,42 +55,48 @@ class PieChartSample1State extends State {
             const SizedBox(
               height: 1,
             ),
-            IntrinsicHeight(
-              child: Column(
-               // mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  Indicator(
-                    color: const Color(0xffe6e7f0),
-                    text: 'One',
-                    isSquare: false,
-                    size: touchedIndex == 0 ? 18 : 16,
-                    textColor: touchedIndex == 0 ? Colors.black : Colors.grey,
+            Row(
+              children: [
+                Expanded(child: SizedBox()),
+                Expanded(
+                  child: Column(
+                   // mainAxisSize: MainAxisSize.max,
+                    //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Indicator(
+                        color: const Color(0xffe6e7f0),
+                        text: 'One',
+                        isSquare: false,
+                        size: touchedIndex == 0 ? 18 : 16,
+                        textColor: touchedIndex == 0 ? Colors.black : Colors.grey,
+                      ),
+                      Indicator(
+                        color: const Color(0xff343351),
+                        text: 'Two',
+                        isSquare: false,
+                        size: touchedIndex == 1 ? 18 : 16,
+                        textColor: touchedIndex == 1 ? Colors.black : Colors.grey,
+                      ),
+                      Indicator(
+                        color: const Color(0xffffcfcd),
+                        text: 'Three',
+                        isSquare: false,
+                        size: touchedIndex == 2 ? 18 : 16,
+                        textColor: touchedIndex == 2 ? Colors.black : Colors.grey,
+                      ),
+                      Indicator(
+                        color: const Color(0xff5f5bf3),
+                        text: 'Four',
+                        isSquare: false,
+                        size: touchedIndex == 3 ? 18 : 16,
+                        textColor: touchedIndex == 3 ? Colors.black : Colors.grey,
+                      ),
+                    ],
                   ),
-                  Indicator(
-                    color: const Color(0xff343351),
-                    text: 'Two',
-                    isSquare: false,
-                    size: touchedIndex == 1 ? 18 : 16,
-                    textColor: touchedIndex == 1 ? Colors.black : Colors.grey,
-                  ),
-                  Indicator(
-                    color: const Color(0xffffcfcd),
-                    text: 'Three',
-                    isSquare: false,
-                    size: touchedIndex == 2 ? 18 : 16,
-                    textColor: touchedIndex == 2 ? Colors.black : Colors.grey,
-                  ),
-                  Indicator(
-                    color: const Color(0xff5f5bf3),
-                    text: 'Four',
-                    isSquare: false,
-                    size: touchedIndex == 3 ? 18 : 16,
-                    textColor: touchedIndex == 3 ? Colors.black : Colors.grey,
-                  ),
-                ],
-              ),
+                ),
+                Expanded(child: SizedBox()),
+              ],
             ),
           ],
         ),

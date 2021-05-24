@@ -18,21 +18,19 @@ class _LineChartSample2State extends State<LineChartSample2> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Expanded(
-          child: AspectRatio(
-            aspectRatio: 3.5,
-            child: Container(
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                  color: Color(0xffffffff)),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    right: 18.0, left: 12.0, top: 24, bottom: 12),
-                child: LineChart(
-                 mainData(),
+        AspectRatio(
+          aspectRatio: 3.5,
+          child: Container(
+            decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
                 ),
+                color: Color(0xffffffff)),
+            child: Padding(
+              padding: const EdgeInsets.only(
+                  right: 18.0, left: 12.0, top: 24, bottom: 12),
+              child: LineChart(
+               mainData(),
               ),
             ),
           ),
