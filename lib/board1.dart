@@ -9,6 +9,13 @@ class Board1 extends StatefulWidget {
 }
 
 class _Board1State extends State<Board1> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -105,7 +112,7 @@ class _Board1State extends State<Board1> {
                           ),
                         ),
                         Expanded(
-                          flex: 6,
+                          flex: 5,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [

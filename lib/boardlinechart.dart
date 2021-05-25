@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'dart:async';
 
 class LineChartSample2 extends StatefulWidget {
   @override
@@ -13,6 +14,12 @@ class _LineChartSample2State extends State<LineChartSample2> {
   ];
 
   bool showAvg = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +37,9 @@ class _LineChartSample2State extends State<LineChartSample2> {
               padding: const EdgeInsets.only(
                   right: 18.0, left: 12.0, top: 24, bottom: 12),
               child: LineChart(
-               mainData(),
+                mainData(),
+                swapAnimationDuration: Duration(seconds: 150),
+                swapAnimationCurve: Curves.linear,
               ),
             ),
           ),
@@ -78,43 +87,43 @@ class _LineChartSample2State extends State<LineChartSample2> {
       titlesData: FlTitlesData(
         show: true,
         bottomTitles: SideTitles(
-            showTitles: true,
-            reservedSize: 20,
-            getTextStyles: (value) => const TextStyle(
-                color: Color(0xff68737d),
-                fontWeight: FontWeight.bold,
-                fontSize: 16),
-            getTitles: (value) {
-              switch (value.toInt()) {
-                case 0:
-                  return 'JAN';
-                case 10:
-                  return 'FEB';
-                case 20:
-                  return 'MAR';
-                case 30:
-                  return 'APR';
-                case 40:
-                  return 'MAY';
-                case 50:
-                  return 'JUN';
-                case 60:
-                  return 'JUL';
-                case 70:
-                  return 'AUG';
-                case 80:
-                  return 'SEPT';
-                case 90:
-                  return 'OCT';
-                case 100:
-                  return 'NOV';
-                case 110:
-                  return 'DEC';
-              }
-              return '';
-            },
-            margin: 8,
-           ),
+          showTitles: true,
+          reservedSize: 20,
+          getTextStyles: (value) => const TextStyle(
+              color: Color(0xff68737d),
+              fontWeight: FontWeight.bold,
+              fontSize: 16),
+          getTitles: (value) {
+            switch (value.toInt()) {
+              case 0:
+                return 'JAN';
+              case 10:
+                return 'FEB';
+              case 20:
+                return 'MAR';
+              case 30:
+                return 'APR';
+              case 40:
+                return 'MAY';
+              case 50:
+                return 'JUN';
+              case 60:
+                return 'JUL';
+              case 70:
+                return 'AUG';
+              case 80:
+                return 'SEPT';
+              case 90:
+                return 'OCT';
+              case 100:
+                return 'NOV';
+              case 110:
+                return 'DEC';
+            }
+            return '';
+          },
+          margin: 8,
+        ),
         leftTitles: SideTitles(
           showTitles: true,
           getTextStyles: (value) => const TextStyle(
@@ -151,6 +160,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
             FlSpot(2.6 * 10, 2),
             FlSpot(4.9 * 10, 5),
             FlSpot(6.8 * 10, 3.1),
+            FlSpot(7.5 * 10, 2.3),
             FlSpot(8.0 * 10, 4),
             FlSpot(9.5 * 10, 3),
             FlSpot(10.0 * 10, 5),
@@ -170,9 +180,6 @@ class _LineChartSample2State extends State<LineChartSample2> {
           ),
         ),
       ],
-
     );
   }
-
-
 }
