@@ -5,7 +5,12 @@ import 'package:charts_in_flutterr/barchart.dart' as bC;
 import 'board1.dart';
 
 void main() {
-  runApp(MaterialApp(home: Board1()));
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Board1(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {

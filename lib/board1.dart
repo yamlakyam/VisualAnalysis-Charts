@@ -19,6 +19,7 @@ class _Board1State extends State<Board1> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
           backgroundColor: Color(0xffffffff),
           body: Center(
