@@ -58,8 +58,8 @@ class _LineChartSample2State extends State<LineChartSample2> {
               child: LineChart(
                 //mainData(),
                 showAvg ? avgData() : mainData(),
-                swapAnimationDuration: Duration(seconds: 3),
-                swapAnimationCurve: Curves.easeInOutSine,
+                swapAnimationDuration: Duration(seconds: 1),
+                swapAnimationCurve: Curves.linear,
               ),
             ),
           ),
@@ -219,7 +219,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
         show: true,
         bottomTitles: SideTitles(
           showTitles: true,
-          reservedSize: 22,
+          reservedSize: 20,
           getTextStyles: (value) => const TextStyle(
               color: Color(0xff68737d),
               fontWeight: FontWeight.bold,
@@ -279,7 +279,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
       ),
       borderData: FlBorderData(
           show: true,
-          border: Border.all(color: const Color(0xff37434d), width: 1)),
+          border: Border.all(color: const Color(0xffffffff), width: 1)),
       minX: 0,
       maxX: 11,
       minY: 0,

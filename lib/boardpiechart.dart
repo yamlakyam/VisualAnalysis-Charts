@@ -1,7 +1,9 @@
+import 'package:charts_in_flutterr/Piedata.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'indicator.dart';
+import 'Piedata.dart';
 
 class PieChartSample1 extends StatefulWidget {
   @override
@@ -50,7 +52,7 @@ class PieChartSample1State extends State {
                       ),
                       sectionsSpace: 1,
                       centerSpaceRadius: 0,
-                      sections: showingSections()),
+                      sections: showingSections(touchedIndex)),
                 ),
               ),
             ),
@@ -111,73 +113,98 @@ class PieChartSample1State extends State {
     );
   }
 
-  List<PieChartSectionData> showingSections() {
-    return List.generate(
-      4,
-      (i) {
-        final isTouched = i == touchedIndex;
-        final opacity = isTouched ? 1.0 : 0.6;
-        switch (i) {
-          case 0:
-            return PieChartSectionData(
-              color: const Color(0xffe6e7f0)
-              // .withOpacity(opacity)
-              ,
-              value: 25,
-              title: '25%',
-              radius: 50,
-              titleStyle: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: const Color(0xff9592a1)),
-              titlePositionPercentageOffset: 0.55,
-            );
-          case 1:
-            return PieChartSectionData(
-              color: const Color(0xff343351)
-              //.withOpacity(opacity)
-              ,
-              value: 25,
-              title: '25%',
-              radius: 50,
-              titleStyle: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: const Color(0xffe3e4e8)),
-              titlePositionPercentageOffset: 0.55,
-            );
-          case 2:
-            return PieChartSectionData(
-              color: const Color(0xffffcdcc)
-              //.withOpacity(opacity)
-              ,
-              value: 25,
-              title: '25%',
-              radius: 50,
-              titleStyle: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: const Color(0xff645b6d)),
-              titlePositionPercentageOffset: 0.6,
-            );
-          case 3:
-            return PieChartSectionData(
-              color: const Color(0xff5f5bf3)
-              // .withOpacity(opacity),
-              ,
-              value: 25,
-              title: '25%',
-              radius: 50,
-              titleStyle: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: const Color(0xffd4d6ea)),
-              titlePositionPercentageOffset: 0.55,
-            );
-          default:
-            throw Error();
-        }
-      },
-    );
+  List<PieChartSectionData> showingSections(int touchedIndex) {
+    return PieData()
+        .data
+        .asMap()
+        .map<int, PieChartSectionData>((index, data) {
+          final isTouched = index == touchedIndex;
+          final double fontSize = isTouched ? 13 : 12;
+          final double radius = isTouched ? 55 : 50;
+
+          final value = PieChartSectionData(
+            color: data.color,
+            value: data.value,
+            title: '${data.value}%',
+            radius: radius,
+            titleStyle: TextStyle(
+              fontSize: fontSize,
+              fontWeight: FontWeight.bold,
+              color: data.txtColor,
+            ),
+            titlePositionPercentageOffset: 0.55,
+          );
+
+          return MapEntry(index, value);
+        })
+        .values
+        .toList();
+    //   List.generate(
+    //   4,
+    //   (i) {
+    //     final isTouched = i == touchedIndex;
+    //     final opacity = isTouched ? 1.0 : 0.6;
+    //     switch (i) {
+    //       case 0:
+    //         return PieChartSectionData(
+    //           color: const Color(0xffe6e7f0)
+    //           // .withOpacity(opacity)
+    //           ,
+    //           value: 25,
+    //           title: '25%',
+    //           radius: 50,
+    //           titleStyle: TextStyle(
+    //               fontSize: 18,
+    //               fontWeight: FontWeight.bold,
+    //               color: const Color(0xff9592a1)),
+    //           titlePositionPercentageOffset: 0.55,
+    //         );
+    //       case 1:
+    //         return PieChartSectionData(
+    //           color: const Color(0xff343351)
+    //           //.withOpacity(opacity)
+    //           ,
+    //           value: 25,
+    //           title: '25%',
+    //           radius: 50,
+    //           titleStyle: TextStyle(
+    //               fontSize: 18,
+    //               fontWeight: FontWeight.bold,
+    //               color: const Color(0xffe3e4e8)),
+    //           titlePositionPercentageOffset: 0.55,
+    //         );
+    //       case 2:
+    //         return PieChartSectionData(
+    //           color: const Color(0xffffcdcc)
+    //           //.withOpacity(opacity)
+    //           ,
+    //           value: 25,
+    //           title: '25%',
+    //           radius: 50,
+    //           titleStyle: TextStyle(
+    //               fontSize: 18,
+    //               fontWeight: FontWeight.bold,
+    //               color: const Color(0xff645b6d)),
+    //           titlePositionPercentageOffset: 0.6,
+    //         );
+    //       case 3:
+    //         return PieChartSectionData(
+    //           color: const Color(0xff5f5bf3)
+    //           // .withOpacity(opacity),
+    //           ,
+    //           value: 25,
+    //           title: '25%',
+    //           radius: 50,
+    //           titleStyle: TextStyle(
+    //               fontSize: 18,
+    //               fontWeight: FontWeight.bold,
+    //               color: const Color(0xffd4d6ea)),
+    //           titlePositionPercentageOffset: 0.55,
+    //         );
+    //       default:
+    //         throw Error();
+    //     }
+    //   },
+    // );
   }
 }
