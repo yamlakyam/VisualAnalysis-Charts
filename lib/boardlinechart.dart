@@ -21,7 +21,6 @@ class _LineChartSample2State extends State<LineChartSample2> {
     // TODO: implement initState
     super.initState();
 
-    Future.delayed(Duration(seconds: 5), () {});
   }
 
   @override
@@ -39,9 +38,9 @@ class _LineChartSample2State extends State<LineChartSample2> {
             color: showAvg ? Colors.white.withOpacity(0.5) : Colors.white),
       ),
     );
-    // Future.delayed(Duration(seconds: 5), () {
-    //   textButton.onPressed();
-    // });
+    Future.delayed(Duration(seconds: 5), () {
+      textButton.onPressed();
+    });
 
     return Stack(
       children: <Widget>[
@@ -52,7 +51,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
                 borderRadius: BorderRadius.all(
                   Radius.circular(10),
                 ),
-                color: Color(0xffff9f8f)),
+                color: Color(0xffffffff)),
             child: Padding(
               padding: const EdgeInsets.only(
                   right: 18.0, left: 12.0, top: 24, bottom: 12),
@@ -201,7 +200,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
     return LineChartData(
       lineTouchData: LineTouchData(enabled: false),
       gridData: FlGridData(
-        show: true,
+        show: false,
         drawHorizontalLine: true,
         getDrawingVerticalLine: (value) {
           return FlLine(
