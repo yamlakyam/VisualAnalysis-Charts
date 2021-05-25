@@ -75,7 +75,6 @@ class _LineChartSample2State extends State<LineChartSample2> {
   }
 
   LineChartData mainData() {
-
     return LineChartData(
       gridData: FlGridData(
         show: false,
@@ -164,7 +163,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
       maxY: 6,
       lineBarsData: [
         LineChartBarData(
-          spots:globals.spots2,
+          spots: globals.spots2,
           isCurved: true,
           colors: gradientColors,
           barWidth: 3,
@@ -183,6 +182,21 @@ class _LineChartSample2State extends State<LineChartSample2> {
   }
 
   LineChartData avgData() {
+    List<double> allY = globals.spots2.map((e) => e.y).toList();
+    List<double> allX = globals.spots2.map((e) => e.x).toList();
+    double sum =
+        allY.fold(0, (previousValue, element) => previousValue + element);
+    double average = sum / allY.length;
+    List<double> allAvgY = allY.map((e) => average).toList();
+    List<FlSpot> avgSpots =allAvgY.asMap().entries.map((e) => FlSpot(e.key.toDouble(), e.value)).toList() ;
+
+
+    //List<FlSpot> avgSpot = globals.spots2.map((e) => e.y=average).cast<FlSpot>() ;
+    // FlSpot avgSpots = globals.spots2.forEach((element) {
+    //   element.y = average;
+    // });
+
+
     return LineChartData(
       lineTouchData: LineTouchData(enabled: false),
       gridData: FlGridData(
@@ -272,7 +286,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
       maxY: 6,
       lineBarsData: [
         LineChartBarData(
-          spots:globals.spots2,
+          spots: avgSpots,
           isCurved: true,
           colors: [
             ColorTween(begin: gradientColors[0], end: gradientColors[1])
