@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'dart:async';
+import 'globals.dart' as globals;
 
 class LineChartSample2 extends StatefulWidget {
   @override
@@ -38,9 +39,10 @@ class _LineChartSample2State extends State<LineChartSample2> {
             color: showAvg ? Colors.white.withOpacity(0.5) : Colors.white),
       ),
     );
-    Future.delayed(Duration(seconds: 10), () {
-      textButton.onPressed();
-    });
+    // Future.delayed(Duration(seconds: 5), () {
+    //   textButton.onPressed();
+    // });
+
     return Stack(
       children: <Widget>[
         AspectRatio(
@@ -73,6 +75,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
   }
 
   LineChartData mainData() {
+
     return LineChartData(
       gridData: FlGridData(
         show: false,
@@ -103,27 +106,27 @@ class _LineChartSample2State extends State<LineChartSample2> {
             switch (value.toInt()) {
               case 0:
                 return 'JAN';
-              case 10:
+              case 1:
                 return 'FEB';
-              case 20:
+              case 2:
                 return 'MAR';
-              case 30:
+              case 3:
                 return 'APR';
-              case 40:
+              case 4:
                 return 'MAY';
-              case 50:
+              case 5:
                 return 'JUN';
-              case 60:
+              case 6:
                 return 'JUL';
-              case 70:
+              case 7:
                 return 'AUG';
-              case 80:
+              case 8:
                 return 'SEPT';
-              case 90:
+              case 9:
                 return 'OCT';
-              case 100:
+              case 10:
                 return 'NOV';
-              case 110:
+              case 11:
                 return 'DEC';
             }
             return '';
@@ -156,22 +159,12 @@ class _LineChartSample2State extends State<LineChartSample2> {
           show: true,
           border: Border.all(color: const Color(0xffffffff), width: 1)),
       minX: 0,
-      maxX: 110,
+      maxX: 11,
       minY: 0,
       maxY: 6,
       lineBarsData: [
         LineChartBarData(
-          spots: [
-            FlSpot(0.0 * 10, 3),
-            FlSpot(2.6 * 10, 2),
-            FlSpot(4.9 * 10, 5),
-            FlSpot(6.8 * 10, 3.1),
-            FlSpot(7.5 * 10, 2.3),
-            FlSpot(8.0 * 10, 4),
-            FlSpot(9.5 * 10, 3),
-            FlSpot(10.0 * 10, 5),
-            FlSpot(11.0 * 10, 4),
-          ],
+          spots:globals.spots2,
           isCurved: true,
           colors: gradientColors,
           barWidth: 3,
@@ -219,12 +212,30 @@ class _LineChartSample2State extends State<LineChartSample2> {
               fontSize: 16),
           getTitles: (value) {
             switch (value.toInt()) {
+              case 0:
+                return 'JAN';
+              case 1:
+                return 'FEB';
               case 2:
                 return 'MAR';
+              case 3:
+                return 'APR';
+              case 4:
+                return 'MAY';
               case 5:
                 return 'JUN';
+              case 6:
+                return 'JUL';
+              case 7:
+                return 'AUG';
               case 8:
-                return 'SEP';
+                return 'SEPT';
+              case 9:
+                return 'OCT';
+              case 10:
+                return 'NOV';
+              case 11:
+                return 'DEC';
             }
             return '';
           },
@@ -261,15 +272,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
       maxY: 6,
       lineBarsData: [
         LineChartBarData(
-          spots: [
-            FlSpot(0, 3.44),
-            FlSpot(2.6, 3.44),
-            FlSpot(4.9, 3.44),
-            FlSpot(6.8, 3.44),
-            FlSpot(8, 3.44),
-            FlSpot(9.5, 3.44),
-            FlSpot(11, 3.44),
-          ],
+          spots:globals.spots2,
           isCurved: true,
           colors: [
             ColorTween(begin: gradientColors[0], end: gradientColors[1])
