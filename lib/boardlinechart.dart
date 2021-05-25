@@ -187,8 +187,9 @@ class _LineChartSample2State extends State<LineChartSample2> {
     double sum =
         allY.fold(0, (previousValue, element) => previousValue + element);
     double average = sum / allY.length;
-    List<double> allAvgY = allY.map((e) => average).toList();
-    List<FlSpot> avgSpots =allAvgY.asMap().entries.map((e) => FlSpot(e.key.toDouble(), e.value)).toList() ;
+    // List<double> allAvgY = allY.map((e) => average).toList();
+    // List<FlSpot> avgSpots =allAvgY.asMap().entries.map((e) => FlSpot(e.key.toDouble(), e.value)).toList() ;
+    List<FlSpot> avggSpots =globals.spots2.asMap().entries.map((e)=>FlSpot(e.value.x,average)).toList();
 
 
     //List<FlSpot> avgSpot = globals.spots2.map((e) => e.y=average).cast<FlSpot>() ;
@@ -286,7 +287,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
       maxY: 6,
       lineBarsData: [
         LineChartBarData(
-          spots: avgSpots,
+          spots: avggSpots,
           isCurved: true,
           colors: [
             ColorTween(begin: gradientColors[0], end: gradientColors[1])
