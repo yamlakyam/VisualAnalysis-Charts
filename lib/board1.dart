@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'boardlinechart.dart' as bLC;
@@ -9,7 +11,6 @@ class Board1 extends StatefulWidget {
 }
 
 class _Board1State extends State<Board1> {
-
   @override
   void initState() {
     // TODO: implement initState
@@ -18,6 +19,17 @@ class _Board1State extends State<Board1> {
 
   @override
   Widget build(BuildContext context) {
+    var pc1 = bPC.PieChartSample1();
+
+    var inkpie1 = Card(
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Pie1()));
+        },
+        child: pc1,
+      ),
+    );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -58,14 +70,13 @@ class _Board1State extends State<Board1> {
                                 ),
                               ),
                               Expanded(
-                                flex:1,
+                                flex: 1,
                                 child: Text(
                                   'KOOJE | Finance Portfolio Manager',
                                 ),
                               ),
-
                               Expanded(
-                                flex:1,
+                                flex: 1,
                                 child: Row(
                                   children: [
                                     Icon(Icons.android_rounded),
@@ -133,7 +144,11 @@ class _Board1State extends State<Board1> {
                                   children: [
                                     Expanded(
                                       flex: 1,
-                                      child: bPC.PieChartSample1(),
+                                      // ignore: deprecated_member_use
+                                      child: Hero(
+                                        tag: 'pie1',
+                                        child: inkpie1,
+                                      ),
                                     ),
                                     Expanded(
                                       flex: 1,
@@ -198,6 +213,24 @@ class dataLists extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class Pie1 extends StatefulWidget {
+  @override
+  _Pie1State createState() => _Pie1State();
+}
+
+class _Pie1State extends State<Pie1> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Hero(
+          tag: 'pie1',
+          child: Center(
+            child: bPC.PieChartSample1(),
+          )),
     );
   }
 }
