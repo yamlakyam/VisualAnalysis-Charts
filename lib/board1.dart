@@ -96,7 +96,7 @@ class _Board1State extends State<Board1> {
                     ),
                   ),
                   Expanded(
-                    flex: 3,
+                    flex: 4,
                     child: Row(
                       children: [
                         Expanded(

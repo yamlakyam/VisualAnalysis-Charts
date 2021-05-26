@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'indicator.dart';
 import 'Piedata.dart';
+import 'dart:async';
 
 class PieChartSample1 extends StatefulWidget {
   @override
@@ -18,13 +19,13 @@ class PieChartSample1State extends State {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 1.3,
+      aspectRatio: 1,
       child: Card(
         color: Colors.white,
         child: Column(
           children: <Widget>[
             const SizedBox(
-              height: 2,
+              height: 1,
             ),
             Expanded(
               child: AspectRatio(
@@ -62,48 +63,7 @@ class PieChartSample1State extends State {
             Row(
               children: [
                 Expanded(flex: 2, child: SizedBox()),
-                Expanded(
-                  flex: 2,
-                  child: Column(
-                    // mainAxisSize: MainAxisSize.max,
-                    //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      Indicator(
-                        color: const Color(0xffe6e7f0),
-                        text: 'One',
-                        isSquare: false,
-                        size: touchedIndex == 0 ? 18 : 16,
-                        textColor:
-                            touchedIndex == 0 ? Colors.black : Colors.grey,
-                      ),
-                      Indicator(
-                        color: const Color(0xff343351),
-                        text: 'Two',
-                        isSquare: false,
-                        size: touchedIndex == 1 ? 18 : 16,
-                        textColor:
-                            touchedIndex == 1 ? Colors.black : Colors.grey,
-                      ),
-                      Indicator(
-                        color: const Color(0xffffcfcd),
-                        text: 'Three',
-                        isSquare: false,
-                        size: touchedIndex == 2 ? 18 : 16,
-                        textColor:
-                            touchedIndex == 2 ? Colors.black : Colors.grey,
-                      ),
-                      Indicator(
-                        color: const Color(0xff5f5bf3),
-                        text: 'Four',
-                        isSquare: false,
-                        size: touchedIndex == 3 ? 18 : 16,
-                        textColor:
-                            touchedIndex == 3 ? Colors.black : Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
+                Expanded(flex: 2, child: IndicatorsWidget()),
                 Expanded(flex: 1, child: SizedBox()),
               ],
             ),
