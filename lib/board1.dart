@@ -20,16 +20,16 @@ class _Board1State extends State<Board1> {
   @override
   Widget build(BuildContext context) {
     var pc1 = bPC.PieChartSample1();
-
-    var inkpie1 = Card(
-      child: InkWell(
-        onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Pie1()));
-        },
-        child: pc1,
-      ),
+    var inkpie1 = FlatButton(
+      onPressed: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Pie1()));
+      },
+      child: pc1,
     );
+    Future.delayed(Duration(seconds: 5), () {
+      inkpie1.onPressed();
+    });
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -225,7 +225,12 @@ class Pie1 extends StatefulWidget {
 class _Pie1State extends State<Pie1> {
   @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration(seconds: 7), () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Board1()));
+    });
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Hero(
           tag: 'pie1',
           child: Center(
