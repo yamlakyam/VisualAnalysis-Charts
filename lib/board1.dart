@@ -19,20 +19,17 @@ class _Board1State extends State<Board1> {
 
   @override
   Widget build(BuildContext context) {
-    var pc1 = bPC.PieChartSample1();
-
-    var pie1gest = GestureDetector(
-        child: InkWell(
+    var pie1 = GestureDetector(
       onTap: () {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => Pie1()));
       },
-      child: pc1,
-    ));
-
-    Future.delayed(Duration(seconds: 5), () {
-      pie1gest.onTap;
+      child: bPC.PieChartSample1(),
+    );
+    Future.delayed(Duration(seconds: 7), () {
+      pie1.onTap();
     });
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -148,10 +145,7 @@ class _Board1State extends State<Board1> {
                                     Expanded(
                                       flex: 1,
                                       // ignore: deprecated_member_use
-                                      child: Hero(
-                                        tag: 'pie1',
-                                        child: pie1gest,
-                                      ),
+                                      child: pie1,
                                     ),
                                     Expanded(
                                       flex: 1,
@@ -234,11 +228,9 @@ class _Pie1State extends State<Pie1> {
     });
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Hero(
-          tag: 'pie1',
-          child: Center(
-            child: bPC.PieChartSample1(),
-          )),
+      home: Center(
+        child: bPC.PieChartSample1(),
+      ),
     );
   }
 }
